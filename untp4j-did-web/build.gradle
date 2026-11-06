@@ -1,0 +1,5 @@
+description = 'did:web documents and resolution for UNTP issuers'
+
+dependencies {
+    api project(':untp4j-jose')
+}

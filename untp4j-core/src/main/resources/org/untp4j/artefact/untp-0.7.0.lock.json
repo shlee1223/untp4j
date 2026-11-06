@@ -1,0 +1,51 @@
+{
+  "untpVersion": "0.7.0",
+  "comment": "SHA-256 of the raw bytes served at each URL. UNTP artefacts are GPL-3.0 and are not redistributed; they are fetched and verified against these pins.",
+  "artefacts": [
+    {
+      "url": "https://www.w3.org/ns/credentials/v2",
+      "file": "context/vcdm-2.jsonld",
+      "sha256": "59955ced6697d61e03f2b2556febe5308ab16842846f5b586d7f1f7adec92734"
+    },
+    {
+      "url": "https://vocabulary.uncefact.org/untp/0.7.0/context/",
+      "file": "context/untp-0.7.0.jsonld",
+      "sha256": "fbd4824e30d3cfc5cba949e1efe19b4c9ebaee056abe7aaf1c6b139a7bf91b0c"
+    },
+    {
+      "url": "https://untp.unece.org/artefacts/schema/v0.7.0/dpp/DigitalProductPassport.json",
+      "file": "schema/0.7.0/DigitalProductPassport.json",
+      "sha256": "cd1257d14904443f98a4ccd3f84b2e9b160a331b3e9f36161a8a0b14b64e0ca2"
+    },
+    {
+      "url": "https://untp.unece.org/artefacts/schema/v0.7.0/dcc/ConformityCredential.json",
+      "file": "schema/0.7.0/ConformityCredential.json",
+      "sha256": "3fe95e15297eb37dc20fcb020fab95d9e42cfee7bf4599461aa20d7c97a8e8cc"
+    },
+    {
+      "url": "https://untp.unece.org/artefacts/schema/v0.7.0/dfr/DigitalFacilityRecord.json",
+      "file": "schema/0.7.0/DigitalFacilityRecord.json",
+      "sha256": "b4c86df054939943d0f89de9569817d33905de5d4f9e580009865cbdbc23845b"
+    },
+    {
+      "url": "https://untp.unece.org/artefacts/schema/v0.7.0/dia/DigitalIdentityAnchor.json",
+      "file": "schema/0.7.0/DigitalIdentityAnchor.json",
+      "sha256": "b091fe5a832f9b354696aa4aa306b8729f883c4c5d283cd3c2d781d7bab13e6d"
+    },
+    {
+      "url": "https://untp.unece.org/artefacts/schema/v0.7.0/dte/DigitalTraceabilityEvent.json",
+      "file": "schema/0.7.0/DigitalTraceabilityEvent.json",
+      "sha256": "9d2bf756b23b9f2b42ed5dc59377cde55848e553be870befe41c945814bfc900"
+    },
+    {
+      "url": "https://untp.unece.org/artefacts/schema/v0.7.0/cvc/ConformityScheme.json",
+      "file": "schema/0.7.0/ConformityScheme.json",
+      "sha256": "2f9c0187529171cdf149a9c4ec7fa9ccbf172b3fc68e5f76a73528f31161b61b"
+    },
+    {
+      "url": "https://untp.unece.org/artefacts/schema/v0.7.0/idr/LinksetSchema.json",
+      "file": "schema/0.7.0/LinksetSchema.json",
+      "sha256": "06c2f6d15e11c3a8ffbb3b45f0d8f611b7c2189cee2d19d08e25811838c4725e"
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+import groovy.json.JsonSlurper
+
+import java.net.http.HttpClient
+import java.net.http.HttpRequest
+import java.net.http.HttpResponse
+import java.security.MessageDigest
+import java.time.Duration
+
+description = 'UNTP credential model, pinned artefacts and schema validation'
+
+dependencies {
+    api 'com.fasterxml.jackson.core:jackson-databind:2.18.2'
+    implementation 'com.networknt:json-schema-validator:1.5.6'
+}
+
+/*
+ * UNTP artefacts (schemas, contexts, samples) are published under GPL-3.0, so they are
+ * not committed or packaged. This task downloads them and verifies each file against the
+ * SHA-256 pinned in the lock files. A mismatch fails the build: re-pin deliberately.
+ */
+def artefactsDir = layout.buildDirectory.dir('untp-artefacts')
+def lockFiles = files(
+        'src/main/resources/org/untp4j/artefact/untp-0.7.0.lock.json',
+        'src/test/resources/untp-samples-0.7.0.lock.json')
+
+def fetchUntpArtefacts = tasks.register('fetchUntpArtefacts') {
+    group = 'untp'
+    description = 'Downloads UNTP artefacts and verifies their pinned SHA-256.'
+    inputs.files(lockFiles)
+    outputs.dir(artefactsDir)
+
+    doLast {
+        def outDir = artefactsDir.get().asFile
+        def http = HttpClient.newBuilder()
+                .followRedirects(HttpClient.Redirect.NORMAL)
+                .connectTimeout(Duration.ofSeconds(20))
+                .build()
+        def sha256 = { byte[] bytes -> MessageDigest.getInstance('SHA-256').digest(bytes).encodeHex().toString() }
+
+        lockFiles.each { lockFile ->
+            new JsonSlurper().parse(lockFile).artefacts.each { a ->
+                def target = new File(outDir, a.file)
+                if (target.isFile() && sha256(target.bytes) == a.sha256) {
+                    return
+                }
+                def request = HttpRequest.newBuilder(URI.create(a.url))
+                        .timeout(Duration.ofSeconds(60))
+                        .header('Accept', 'application/ld+json, application/json')
+                        .build()
+                def response = http.send(request, HttpResponse.BodyHandlers.ofByteArray())
+                if (response.statusCode() != 200) {
+                    throw new GradleException("HTTP ${response.statusCode()} fetching ${a.url}")
+                }
+                def actual = sha256(response.body())
+                if (actual != a.sha256) {
+                    throw new GradleException("""SHA-256 mismatch for ${a.url}
+  pinned:   ${a.sha256}
+  received: ${actual}
+The published artefact changed. Review the change, then update ${lockFile.name}.""")
+                }
+                target.parentFile.mkdirs()
+                target.bytes = response.body()
+                logger.lifecycle("Fetched ${a.file}")
+            }
+        }
+    }
+}
+
+tasks.named('test') {
+    dependsOn fetchUntpArtefacts
+    inputs.dir(artefactsDir)
+    systemProperty 'untp.artefacts.dir', artefactsDir.get().asFile.absolutePath
+}

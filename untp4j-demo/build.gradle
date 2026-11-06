@@ -1,0 +1,22 @@
+plugins {
+    id 'application'
+}
+
+description = 'Generates the static did:web demo issuer site (not published to Maven)'
+
+dependencies {
+    implementation project(':untp4j-core')
+    implementation project(':untp4j-jose')
+    implementation project(':untp4j-did-web')
+    implementation project(':untp4j-status-list')
+}
+
+application {
+    mainClass = 'org.untp4j.demo.GenerateDemoSite'
+}
+
+tasks.named('run') {
+    dependsOn ':untp4j-core:fetchUntpArtefacts'
+    systemProperty 'untp.artefacts.dir', project(':untp4j-core').layout.buildDirectory.dir('untp-artefacts').get().asFile.absolutePath
+    workingDir = rootProject.projectDir
+}

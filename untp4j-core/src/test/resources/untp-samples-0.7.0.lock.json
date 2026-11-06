@@ -1,0 +1,36 @@
+{
+  "untpVersion": "0.7.0",
+  "comment": "Official UNTP v0.7.0 sample credentials (GPL-3.0, fetched at build time, not redistributed).",
+  "artefacts": [
+    {
+      "url": "https://opensource.unicc.org/api/v4/projects/un%2Funece%2Funcefact%2Fspec-untp/repository/files/artefacts%2Fsamples%2Fv0.7.0%2Fdpp%2FDigitalProductPassport_battery_instance.json/raw?ref=v0.7.0",
+      "file": "samples/0.7.0/DigitalProductPassport_battery_instance.json",
+      "sha256": "462264fcc6a4dc5ebcdc69cfbe238f76d2efa75534b71d5e1195d33139c7e599"
+    },
+    {
+      "url": "https://opensource.unicc.org/api/v4/projects/un%2Funece%2Funcefact%2Fspec-untp/repository/files/artefacts%2Fsamples%2Fv0.7.0%2Fdpp%2FDigitalProductPassport_instance.json/raw?ref=v0.7.0",
+      "file": "samples/0.7.0/DigitalProductPassport_instance.json",
+      "sha256": "4c8df24357651169a90242b3f779842573104ed5f755d8fbe817f3129e8f0f91"
+    },
+    {
+      "url": "https://opensource.unicc.org/api/v4/projects/un%2Funece%2Funcefact%2Fspec-untp/repository/files/artefacts%2Fsamples%2Fv0.7.0%2Fdia%2FDigitalIdentityAnchor_battery_instance.json/raw?ref=v0.7.0",
+      "file": "samples/0.7.0/DigitalIdentityAnchor_battery_instance.json",
+      "sha256": "3d66f16c8b4007afde810c3ff12a2bcb488bab89d3bc2b6aafd0a60674d42558"
+    },
+    {
+      "url": "https://opensource.unicc.org/api/v4/projects/un%2Funece%2Funcefact%2Fspec-untp/repository/files/artefacts%2Fsamples%2Fv0.7.0%2Fdcc%2FConformityCredential_battery_instance.json/raw?ref=v0.7.0",
+      "file": "samples/0.7.0/ConformityCredential_battery_instance.json",
+      "sha256": "95f0b8c2cbf89de28029833ebb7d4a94d421d5a92e3f2bc5e955b0941e3b6b19"
+    },
+    {
+      "url": "https://opensource.unicc.org/api/v4/projects/un%2Funece%2Funcefact%2Fspec-untp/repository/files/artefacts%2Fsamples%2Fv0.7.0%2Fdfr%2FDigitalFacilityRecord_battery_instance.json/raw?ref=v0.7.0",
+      "file": "samples/0.7.0/DigitalFacilityRecord_battery_instance.json",
+      "sha256": "486a7cacfd3c1382c3150d0a66458c35a6ecb4bb6e91930b38f797368ffc530f"
+    },
+    {
+      "url": "https://opensource.unicc.org/api/v4/projects/un%2Funece%2Funcefact%2Fspec-untp/repository/files/artefacts%2Fsamples%2Fv0.7.0%2Fdte%2FDigitalTraceabilityEvent_battery_make_instance.json/raw?ref=v0.7.0",
+      "file": "samples/0.7.0/DigitalTraceabilityEvent_battery_make_instance.json",
+      "sha256": "060f8c7e2f40113053fa9d686e59caa5e6e128c36123d8bce172ec4b3da7f6ce"
+    }
+  ]
+}

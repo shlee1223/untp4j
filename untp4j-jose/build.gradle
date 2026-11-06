@@ -1,0 +1,6 @@
+description = 'Securing UNTP credentials as application/vc+jwt (W3C VC-JOSE-COSE)'
+
+dependencies {
+    api 'com.nimbusds:nimbus-jose-jwt:10.10'
+    api 'com.fasterxml.jackson.core:jackson-databind:2.18.2'
+}

@@ -1,0 +1,6 @@
+description = 'W3C Bitstring Status List: issuing, revoking and checking UNTP credential status'
+
+dependencies {
+    api project(':untp4j-jose')
+    api project(':untp4j-did-web')
+}

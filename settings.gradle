@@ -1,0 +1,7 @@
+rootProject.name = 'untp4j'
+
+include 'untp4j-core'
+include 'untp4j-jose'
+include 'untp4j-did-web'
+include 'untp4j-status-list'
+include 'untp4j-demo'
